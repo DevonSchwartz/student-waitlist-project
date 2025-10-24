@@ -15,7 +15,7 @@ def getPosition(username : str, waitlist : list[str]) -> int:
 Remove the person at the front of the waitlist or return None if the waitlist si empty
 PreConditions: 0 <= len(waitlist)
 Post Conditions:
-if len(waitlist) > 0 then return the name of the person at waitlist[0]
+if len(waitlist) > 0 then return the name of the person at waitlist[0] and remove waitlist[0] from waitlist
 and remove the element at waitlist[0]
 if len(waitlist) == 0 then return None
 '''
