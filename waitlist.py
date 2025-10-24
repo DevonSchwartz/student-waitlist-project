@@ -71,9 +71,11 @@ len(waitlist) > 0 : return string representation of waitlist
 len(waitlist) == 0: return "Waitlist Empty"
 '''
 def printWaitlist(waitlist: str) -> str:
-    output = []
+    if len(waitlist) == 0:
+        return 'Waitlist Empty'
 
+    output = []
     for i in range(len(waitlist)):
-        output.append(f"{i + 1} {waitlist[i]}")
+        output.append(f"{i + 1}:{waitlist[i]}")
 
     return '\n'.join(output)
