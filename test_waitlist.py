@@ -1,4 +1,5 @@
-import pytest
+import sys
+import traceback
 
 from waitlist import getPosition, popFront, addUsername, removeUsername, printWaitlist
 
@@ -61,3 +62,35 @@ def test_printWaitlist_empty_and_nonempty():
     wl = ["alice", "bob"]
     expected = "1:alice\n2:bob"
     assert printWaitlist(wl) == expected
+
+
+def run_tests():
+    tests = [
+        test_getPosition_found_and_not_found,
+        test_popFront_nonempty_and_empty,
+        test_addUsername_adds_and_no_duplicate,
+        test_removeUsername_remove_and_not_present,
+        test_printWaitlist_empty_and_nonempty,
+    ]
+    failed = 0
+    for t in tests:
+        try:
+            t()
+            print(f"PASS: {t.__name__}")
+        except AssertionError:
+            failed += 1
+            print(f"FAIL: {t.__name__}")
+            traceback.print_exc()
+        except Exception:
+            failed += 1
+            print(f"ERROR: {t.__name__}")
+            traceback.print_exc()
+
+    print(f"\nRan {len(tests)} tests: {len(tests)-failed} passed, {failed} failed")
+    if failed:
+        # non-zero exit code to indicate failure when used in CI or scripts
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    run_tests()
