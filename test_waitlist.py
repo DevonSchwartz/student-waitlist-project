@@ -60,7 +60,7 @@ def test_printWaitlist_empty_and_nonempty():
     assert printWaitlist(wl) == "Waitlist Empty"
 
     wl = ["alice", "bob"]
-    expected = "1:alice\n2:bob"
+    expected = "0:alice, 1:bob"
     assert printWaitlist(wl) == expected
 
 

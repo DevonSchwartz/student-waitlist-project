@@ -47,10 +47,7 @@ def removeUsername(username : str, waitlist : list[str]) -> bool:
 
 '''
 Return a string reprsentation of the waitlist in the following format
-[Position]:[Username]
-[Position]:[Username]
-...
-[Last Position] : [Username]
+[Position]:[Username], [Position]:[Username]..., [Last Position] : [Username]
 This should output Position as 1-index instead of 0-index
 If the waitlist is emtpy, return "Waitlist Empty"
 Pre: 0 <= len(waitlist)
